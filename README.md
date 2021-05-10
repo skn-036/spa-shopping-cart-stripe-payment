@@ -19,7 +19,7 @@ At the root of your project run the following commands on terminal sequentially.
     <code>php artisan db:seed</code>
 </pre>
 
-This will store all the default data into the database. Then bootstrap all the javascript files by
+This will store all the default data into the database. Then compile the assets by
 <pre>
     <code>npm run dev</code>
 </pre>
