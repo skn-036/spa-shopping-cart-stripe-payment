@@ -1,0 +1,117 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background: #333;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, button, span, label {
+  color: #eee;
+  margin: 0;
+}
+
+a:hover {
+  color: #eee;
+  text-decoration: none;
+}
+
+.btn:focus, .btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.small-gutter {
+  width: 100%;
+  height: 20px;
+}
+
+.top-header-border {
+  border-top: 2px solid #eee;
+}
+
+.font-larger {
+  font-size: 32px;
+}
+
+.small-padding {
+  padding: 5px;
+}
+
+.text-primary {
+  color: #eee !important;
+}
+
+.text-orange {
+  color: #f6993f;
+}
+
+.bg-orange {
+  background: #f6993f;
+}
+
+.text-teal {
+  color: #4dc0b5;
+}
+
+.bg-teal {
+  background: #4dc0b5;
+}
+
+.text-grey {
+  color: #ccc;
+}
+
+.bg-red {
+  background: #e3342f;
+}
+
+.bg-grey {
+  background: gray;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.border-radius-5px {
+  border-radius: 5px;
+}
+
+.flex-50 {
+  flex-basis: 50;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.border-right-2px {
+  border-right: 2px solid #eee;
+}
+
+.shopping-cart {
+  color: #f6993f;
+  font-size: xx-large;
+}
+
+.cart-img {
+  width: 50px;
+  height: 50px;
+}
+
+.logo {
+  padding-top: 5px;
+  padding-bottom: 0px;
+}

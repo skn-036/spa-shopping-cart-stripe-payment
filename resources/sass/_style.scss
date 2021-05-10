@@ -1,0 +1,119 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: $body-bg;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, button, span, label {
+    color: $primary-text;
+    margin: 0;
+}
+
+a:hover {
+    color: $primary-text;
+    text-decoration: none;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+//custom classes
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.small-gutter {
+    width: 100%;
+    height: 20px;
+}
+
+.top-header-border {
+    border-top: 2px solid $primary-text;
+}
+
+.font-larger {
+    font-size: 32px;
+}
+.small-padding {
+    padding: 5px;
+}
+
+.text-primary {
+    color: $primary-text !important
+}
+
+.text-orange {
+    color: $orange;
+}
+
+.bg-orange {
+    background: $orange;
+}
+
+.text-teal {
+    color : $teal;
+}
+
+.bg-teal {
+    background: $teal;
+}
+
+.text-grey {
+    color: $grey
+}
+
+.bg-red {
+    background: $red;
+}
+
+.bg-grey {
+    background: gray;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.cursor-not-allowed {
+    cursor: not-allowed;
+}
+
+.border-radius-5px {
+    border-radius: 5px;
+}
+
+.flex-50 {
+    flex-basis: 50;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.border-right-2px {
+    border-right: 2px solid $primary-text;
+}
+
+
+//custom styling
+.shopping-cart {
+    color: $orange;
+    font-size: xx-large;
+}
+
+.cart-img {
+    width: 50px;
+    height: 50px;
+}
+
+.logo {
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
