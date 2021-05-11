@@ -265,14 +265,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     cartItems: function cartItems() {
-      var items = undefined;
-      var output;
+      var output = undefined;
 
-      if (this.$store.getters.cartItems !== undefined && items == undefined) {
+      if (this.$store.getters.cartItems !== undefined && output == undefined) {
         output = this.$store.getters.cartItems;
-      }
-
-      if (JSON.parse(sessionStorage.getItem('cartItems')) !== undefined && items == undefined) {
+      } else if (JSON.parse(sessionStorage.getItem('cartItems')) !== undefined && output == undefined) {
         output = JSON.parse(sessionStorage.getItem('cartItems'));
       } else {
         output = [];
@@ -302,9 +299,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       })["catch"](function (error) {
         console.log(error);
       });
-    },
-    formSubmit: function formSubmit() {
-      document.querySelector('#aa').submit();
     },
     processPayment: function processPayment() {
       var _this2 = this;
@@ -347,7 +341,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   console.log(error);
                 } else {
                   _this2.paymentDetails.paymentId = paymentMethod.id;
-                  _this2.paymentDetails.total = parseInt(_this2.paymentDetails.total.substring(1)) * 100;
+                  _this2.paymentDetails.total = _this2.paymentDetails.cartProducts.reduce(function (acc, item) {
+                    return acc + item.quantity * item.discount_price;
+                  }, 0) * 100;
                   axios.post('/api/pay', _this2.paymentDetails).then(function (response) {
                     if (response.status == 200 && response.data.id !== undefined) {
                       _this2.processing = false;
@@ -360,7 +356,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                       _this2.paymentDetails = {
                         userDetails: {},
-                        total: 0,
+                        total: _this2.formatPrice(0),
                         cartProducts: []
                       };
 
@@ -1301,7 +1297,6 @@ var render = function() {
           _c(
             "form",
             {
-              attrs: { id: "aa" },
               on: {
                 submit: function($event) {
                   $event.preventDefault()

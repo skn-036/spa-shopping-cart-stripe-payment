@@ -58,13 +58,11 @@
             ...mapGetters(['products']),
 
             cartItems() {
-                let items = undefined;
-                let output;
-
-                if(this.$store.getters.cartItems !== undefined && items == undefined) {
+                let output = undefined;
+                if(this.$store.getters.cartItems !== undefined && output == undefined) {
                     output = this.$store.getters.cartItems
                 }
-                if(JSON.parse(sessionStorage.getItem('cartItems')) !== undefined && items == undefined) {
+                else if(JSON.parse(sessionStorage.getItem('cartItems')) !== undefined && output == undefined) {
                     output = JSON.parse(sessionStorage.getItem('cartItems'))
                 }
                 else {

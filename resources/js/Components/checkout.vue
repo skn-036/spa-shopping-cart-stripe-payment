@@ -10,7 +10,7 @@
                 <div class="text-center">
                     <img class="img-fluid w-100" style="height: 60px;" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
                 </div>
-                <form id="aa" @submit.prevent="processPayment()">
+                <form @submit.prevent="processPayment()">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" id="name" placeholder="Name"
@@ -91,13 +91,11 @@ export default {
 
     methods : {
         cartItems() {
-            let items = undefined;
-            let output;
-            
-            if(this.$store.getters.cartItems !== undefined && items == undefined) {
+            let output = undefined;           
+            if(this.$store.getters.cartItems !== undefined && output == undefined) {
                 output = this.$store.getters.cartItems
             }
-            if(JSON.parse(sessionStorage.getItem('cartItems')) !== undefined && items == undefined) {
+            else if(JSON.parse(sessionStorage.getItem('cartItems')) !== undefined && output == undefined) {
                 output = JSON.parse(sessionStorage.getItem('cartItems'))
             }
             else {
@@ -126,10 +124,6 @@ export default {
             })
         },
 
-        formSubmit() {
-            document.querySelector('#aa').submit() 
-        },
-
         async processPayment() {
             this.processing = true
             this.cardElement.update({disabled: true})
@@ -153,7 +147,9 @@ export default {
             else 
             {
                 this.paymentDetails.paymentId = paymentMethod.id
-                this.paymentDetails.total = parseInt(this.paymentDetails.total.substring(1)) * 100
+
+                this.paymentDetails.total = (this.paymentDetails.cartProducts.reduce((acc, item) => 
+                acc + (item.quantity * item.discount_price), 0)) * 100
 
                 axios.post('/api/pay', this.paymentDetails)
                 .then(response => {
@@ -164,7 +160,7 @@ export default {
                         
                         this.paymentDetails = {
                             userDetails : {},
-                            total : 0,
+                            total : this.formatPrice(0),
                             cartProducts : [],
                         }
                         this.$store.dispatch('updateCartQty', [])

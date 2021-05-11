@@ -104,14 +104,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(['removeFromCart', 'updateCartQty'])), {}, {
     cartItems: function cartItems() {
-      var items = undefined;
-      var output;
+      var output = undefined;
 
-      if (this.$store.getters.cartItems !== undefined && items == undefined) {
+      if (this.$store.getters.cartItems !== undefined && output == undefined) {
         output = this.$store.getters.cartItems;
-      }
-
-      if (JSON.parse(sessionStorage.getItem('cartItems')) !== undefined && items == undefined) {
+      } else if (JSON.parse(sessionStorage.getItem('cartItems')) !== undefined && output == undefined) {
         output = JSON.parse(sessionStorage.getItem('cartItems'));
       } else {
         output = [];

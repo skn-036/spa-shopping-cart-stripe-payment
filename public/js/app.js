@@ -11932,14 +11932,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {
     cartItems: function cartItems() {
-      var items = undefined;
-      var output;
+      var output = undefined;
 
-      if (this.$store.getters.cartItems !== undefined && items == undefined) {
+      if (this.$store.getters.cartItems !== undefined && output == undefined) {
         output = this.$store.getters.cartItems;
-      }
-
-      if (JSON.parse(sessionStorage.getItem('cartItems')) !== undefined && items == undefined) {
+      } else if (JSON.parse(sessionStorage.getItem('cartItems')) !== undefined && output == undefined) {
         output = JSON.parse(sessionStorage.getItem('cartItems'));
       } else {
         output = [];
