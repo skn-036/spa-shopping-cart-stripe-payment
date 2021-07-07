@@ -6,7 +6,7 @@ This repository implements Laravel and Vue.js as a product shopping cart single 
 
 First download this repository. Navigate to root of the project and then
 <pre>
-    <code>composer update</code>
+    <code>composer install</code>
     <code>npm install</code>
 </pre>
 
